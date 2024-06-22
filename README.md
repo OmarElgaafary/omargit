@@ -1,2 +1,2 @@
 # omargit
-learning new things
+learning new things!
