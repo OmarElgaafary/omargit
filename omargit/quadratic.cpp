@@ -1,32 +1,40 @@
 #include <iostream>
 #include <cmath>
 
+struct QuadResult {
+    double number;
+    double numberNeg;
+};
 
-using namespace std;
 
-int main(){
+QuadResult Quad(double a, double b, double c) {
+    QuadResult re;
+
+    double quadraticplus = (-b + sqrt(abs(pow(b, 2) - (4 * a * c))));
+    double quadraticminus = (-b - sqrt(abs(pow(b, 2) - (4 * a * c))));
+    double quadraticde = (2 * a);
+
+    re.number = (quadraticplus / quadraticde);
+    re.numberNeg = (quadraticminus / quadraticde);
+
+    return re;
+}
+
+
+int main() {
 
     double a;
-    cout << "Enter value for A:" << endl;
-    cin >> a;
+    std::cout << "Enter value for A:" << std::endl;
+    std::cin >> a;
     double b;
-    cout << "Enter value for B" << endl;
-    cin >> b;
+    std::cout << "Enter value for B" << std::endl;
+    std::cin >> b;
     double c;
-    cout << "Enter value for C" << endl;
-    cin >> c;
+    std::cout << "Enter value for C" << std::endl;
+    std::cin >> c;
 
-   double quadraticplus = (-b + sqrt(pow(b, 2) - 4 * a * c));
-   double quadraticminus = (-b - sqrt(pow(b, 2) - 4 * a * c));
-   double quadraticde = (2*a);
-   double quadratic1 = (quadraticplus/quadraticde);
-   double quadratic2 = (quadraticminus/quadraticde);
+    QuadResult re = Quad(a, b, c);
 
-   cout << quadratic1 << "," << quadratic2;
-
-   return 0;
-
-
-
-
+    std::cout << re.number << "," << re.numberNeg;
+    return 0;
 }
